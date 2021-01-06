@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+
+<!--    <template id="report_building">-->
+<!--        <t t-call="web.external_layout">-->
+<!--        <t t-call="web.html_container">-->
+<!--            <t t-foreach="docs" t-as="doc">-->
+<!--                &lt;!&ndash;<t t-call="om_hospital.report_patient_cards" />&ndash;&gt;-->
+<!--                <h2>School Info</h2>-->
+<!--                School Name: <t t-esc="doc.school_name"/>-->
+<!--                Email: <t t-esc="doc.email"/>-->
+<!--                School Seq: <t t-esc="doc.name_seq"/>-->
+
+<!--            </t>-->
+<!--        </t></t>-->
+<!--    </template>-->
+        <template id="report_building" >
+        <t t-call="web.html_container" style="position: absolute !important; border: 5px solid lightcoral !important;">
+            <t t-foreach="docs" t-as="o" style="position: absolute; ">
+                                <!--                Date-->
+                    <div id="check-1-date-box" style="position: absolute !important; left: 760px !important; top: 0px !important;">
+                          <span style=" font:Sophisto OT AGauge, serif; font-size: 18" t-field="o.date_action"/>
+                    </div >
+                                <!--                Pay to-->
+
+                    <div id="check-1-pay-to-box" style="position: absolute !important; left: 80px; top: 50px;">
+                        <span style=" font:Sophisto OT AGauge, serif ; font-size: 18" t-field="o.school_name"/>
+                    </div>
+                                                <!--                Amount-->
+
+                    <div id="check-1-amount-nbr-box" style="position: absolute !important; left: 750px; top: 45px;">
+                       <span style=" font:Sophisto OT AGauge, serif ; font-size: 18" t-field="o.amount"/>
+                    </div>
+                                                <!--               Amount in word -->
+
+                    <div id="check-1-amount-txt-box" style="position: absolute !important; left: 20px; top: 83px;">
+                        <span style=" font-weight: bold; font:Sophisto OT AGauge, serif; font-size: 18" t-field="o.amount_in_word"/>
+                    </div>
+<!--                    <div id="check-1-pay-to-address-box" style="position: absolute !important; left: 30px; top: 98px;">-->
+<!--                        <span><span style=" font:Times, Times New Roman, serif" t-field="o.street_address"/></span>-->
+<!--                    </div>-->
+<!--                    <div id="check-1-pay-to-address-box" style="position: absolute !important; left: 30px; top: 120px;">-->
+<!--                        <span style=" font:Times, Times New Roman, serif" t-field="o.city"/>, <span style=" font:Times, Times New Roman, serif" t-field="o.state"/>, <span style=" font:Times, Times New Roman, serif" t-field="o.zip"/>-->
+<!--                    </div>-->
+                                                                <!--                Memo-->
+
+                    <div id="check-1-memo-box" style="position: absolute !important; left: 55px; top: 185px;">
+                                           <span style=" font: Sophisto OT AGauge, serif; font-size: 18" t-field="o.notes"/>
+                    </div>
+
+
+
+
+<!--                <t t-call="web.external_layout">-->
+<!--                    <div class="page">-->
+<!--                        <br></br>-->
+<!--                        <br></br>-->
+<!--                        <br></br>-->
+<!--                        <br></br>-->
+<!--                        <div class="oe_structure"/>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-xs-2" style="margin:auto;">-->
+<!--                            </div>-->
+<!--                            <center>-->
+<!--                                <div class="col-xs-8" style="margin:auto">-->
+<!--                                    <table class="table table-condensed" style="border: 3px solid black !important;">-->
+<!--                                        <tr>-->
+<!--                                            <td width="40%">-->
+<!--                                                <p style="text-align:center;padding-top:10px;">-->
+<!--                                                    <img t-if="not o.image" t-att-src="'/web/static/src/img/placeholder.png'" height="120" border="1" width="120"/>-->
+<!--                                                    <img t-if="o.image" t-att-src="'data:image/png;base64,%s' % to_text(o.image)" height="120" border="1" width="120"/>-->
+<!--                                                </p>-->
+<!--                                                <p style="text-align:center;">-->
+<!--                                                    <h2><strong><span t-field="o.school_name"/></strong></h2>-->
+<!--                                                </p>-->
+<!--                                            </td>-->
+<!--                                            <td width="60%">-->
+<!--                                                <table>-->
+<!--                                                    <tr>-->
+<!--                                                        <td>-->
+<!--                                                            <p style="text-align:right;"><strong>Name seq: </strong></p>-->
+<!--                                                            <p style="text-align:right;"><strong>Building: </strong></p>-->
+<!--                                                            <p style="text-align:right;"><strong>Email: </strong></p>-->
+<!--                                                        </td>-->
+<!--                                                        <td>-->
+<!--                                                            <p style="text-align:left;padding-left:10px;"  t-field="o.name_seq"/>-->
+<!--                                                            <p style="text-align:left;padding-left:10px;" t-field="o.school_building"/>-->
+<!--                                                            <p style="text-align:left;padding-left:10px;" t-field="o.email"/>-->
+<!--                                                        </td>-->
+<!--                                                    </tr>-->
+<!--                                                </table>-->
+<!--                                            </td>-->
+<!--                                        </tr>-->
+<!--                                    </table>-->
+
+<!--                                </div>-->
+<!--                            </center>-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </t>-->
+            </t>
+        </t>
+    </template>
+
+<!--    <template id="report_patient_image" inherit_id="report_patient" primary="True">-->
+<!--        <xpath expr="//table/tr/td[2]" position="replace">-->
+<!--        </xpath>-->
+<!--    </template>-->
+
+
+</odoo>

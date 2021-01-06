@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--    <record id="record_ida" model="ir.ui.view">-->
+<!--        <field name="name">record.ida</field>-->
+<!--        <field name="model">account.payment</field>-->
+<!--        <field name="inherit_id" ref="account.view_account_payment_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--           <xpath expr="//div[@class='oe_button_box']" position="inside">-->
+<!--                <button name="toggle_active" type="object"-->
+<!--                        class="oe_stat_button" icon="fa-archive">-->
+<!--                    Print here-->
+<!--    &lt;!&ndash;                            <field name="active" widget="boolean_button"&ndash;&gt;-->
+<!--    &lt;!&ndash;                                options='{"terminology": "archive"}'/>&ndash;&gt;-->
+<!--                </button>-->
+<!--        </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+     <record id="sale_order_inherit" model="ir.ui.view">
+        <field name="name">sale.order.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="date_test" position="after"/>
+
+            </field>
+        </field>
+    </record>
+                <!--tree view-->
+    <record id="building_tree" model="ir.ui.view">
+            <field name="name">school.building.tree</field>
+            <field name="model">school.building</field>
+            <field name="arch" type="xml">
+                <tree string="Building">
+                    <field name="name_seq"/>
+                    <field name="school_name"/>
+                    <field name="email"/>
+                    <field name="description"/>
+                    <field name="school_building" sum="Total of Building"/>
+                    <field name="school_rooms" sum="Total of Rooms"/>
+                    <field name="notes"/>
+                    <field name="date_action"/>
+                </tree>
+        </field>
+    </record>
+          <!--form view-->
+    <record id="building_form" model="ir.ui.view">
+            <field name="name">school.building.form</field>
+            <field name="model">school.building</field>
+            <field name="arch" type="xml">
+                <form string="Buildings">
+
+                    <sheet>
+                          <div class="oe_title">
+                            <h1>
+                                <field name="name_seq" readonly="1"/>
+                            </h1>
+                        </div>
+                      <field name="image" widget="image" class="oe-avatar"/>
+                        <group>
+                            <group>
+                                <field name="school_name"/>
+                                <field name="email"/>
+                            </group>
+                            <group>
+                                 <field name="school_building"/>
+                                <field name="school_rooms"/>
+                                <field name="description"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="notes"/>
+                            <field name="image"/>
+                            <field name="date_action" options="{'format': 'DD/MM/YYYY'}"/>
+
+                            <field name="amount" />
+                            <field name="amount_in_word" />
+
+                        </group>
+                           <group>
+                            <field name="street_address"/>
+                            <field name="street_address2"/>
+                            <field name="city"/>
+                            <field name="state"/>
+                            <field name="zip"/>
+
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+
+                </form>
+        </field>
+    </record>
+
+    <record id="action_building" model="ir.actions.act_window">
+        <field name="name">Buildings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.building</field>
+
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a new school record!
+          </p>
+        </field>
+    </record>
+
+    <menuitem id="school_root" name="School" sequence="0" web_icon="om_school.static/description/download.png"/>
+    <menuitem id="school_building" name="Building" parent="school_root" action="action_building"  sequence="10"/>
+
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+     <record id="view_account_payment_form_inherited_2" model="ir.ui.view">
+            <field name="name">account.payment.form.inherited</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_post']" position="before">
+                    <button name="print_checks" class="oe_highlight" attrs="{'invisible': ['|', '|', ('payment_method_code', '!=', 'check_printing'), ('state', '!=', 'posted'), ('is_move_sent', '=', True)]}" string="Print Check Custom" type="object"/>
+                    <button name="action_unmark_sent" attrs="{'invisible': ['|', ('payment_method_code', '!=', 'check_printing'), ('is_move_sent', '=', False)]}" string="Unmark Sent" type="object"/>
+                    <button name="action_void_check" attrs="{'invisible': ['|', '|', ('payment_method_code', '!=', 'check_printing'), ('state', '!=', 'posted'), ('is_move_sent', '=', False)]}" string="Void Check" type="object"/>
+                </xpath>
+            </field>
+     </record>
+</odoo>

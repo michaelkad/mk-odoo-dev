@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <report
+        id="report_building_card"
+        string="School Card"
+        model="school.building"
+        report_type="qweb-pdf"
+        name="om_school.report_building"
+        file="om_school.report_building"/>
+      <report
+        id="check_print_card"
+        string="Print Check Test"
+        model="account.payment"
+        report_type="qweb-pdf"
+        name="om_school.check_card"
+        file="om_school.check_card"/>
+
+</odoo>
